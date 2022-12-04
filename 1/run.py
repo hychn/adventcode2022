@@ -16,12 +16,11 @@ for line in X:
     else:
         CAL2i[-1].append( int(line) )
 
-MAXCAL = 0
-MAXI = 0
+
+cal2i = []
 for i,CAL in enumerate(CAL2i):
-    if sum(CAL)>=MAXCAL:
-        MAXCAL = sum(CAL)
-        MAXI = i
+    cal2i.append( [i,sum(CAL)] )
 
-print( MAXI, MAXCAL)
-
+cal2i.sort( key=lambda ixcal: ixcal[1] )
+v = sum( [ c for i,c in cal2i[-3:] ] )
+print(v)
